@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#173b35" />
+    <title>Kleiderspende registrieren | Kleiderbrücke</title>
+    <link href="https://url.uk.m.mimecastprotect.com/s/5imLCRPB8srY96xNC9f67s1Rd1a?domain=cdn.jsdelivr.net" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Zum Inhalt springen</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#start" aria-label="Kleiderbrücke Startseite">
+          <span class="brand-mark" aria-hidden="true">K</span>
+          <span class="brand-name">Kleiderbrücke</span>
+        </a>
+        <nav class="global-nav" aria-label="Hauptnavigation">
+          <a href="#registrierung">Spende registrieren</a>
+          <a href="#ablauf">So funktioniert es</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section id="start" class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">Gemeinsam helfen</p>
+        <h1 id="page-title">Eine Kleiderspende registrieren</h1>
+        <p class="intro-copy">Wähle, ob du deine Spende in der Geschäftsstelle abgibst oder eine Abholung anfragst. So kommt gut erhaltene Kleidung dort an, wo sie gebraucht wird.</p>
+      </section>
+
+      <section id="registrierung" class="form-section" aria-labelledby="form-title">
+        <div class="section-heading">
+          <p class="eyebrow">In wenigen Schritten</p>
+          <h2 id="form-title">Deine Spende</h2>
+        </div>
+
+        <div id="error-summary" class="error-summary" role="alert" tabindex="-1" hidden>
+          <h3>Bitte überprüfe deine Angaben</h3>
+          <ul id="error-list"></ul>
+        </div>
+
+        <form id="donation-form" novalidate>
+          <fieldset class="choice-group">
+            <legend>Wie möchtest du die Kleidung übergeben? <span class="required-label">Pflichtfeld</span></legend>
+            <div class="choice-grid">
+              <label class="choice-card">
+                <input type="radio" name="handover" value="office" checked />
+                <span class="choice-text"><strong>Übergabe an der Geschäftsstelle</strong><small>Ich bringe die Kleidung persönlich vorbei.</small></span>
+              </label>
+              <label class="choice-card">
+                <input type="radio" name="handover" value="pickup" />
+                <span class="choice-text"><strong>Abholung</strong><small>Ein Sammelfahrzeug holt die Kleidung ab.</small></span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="field-grid">
+            <div class="field">
+              <label for="clothing">Art der Kleidung <span class="required-label">Pflichtfeld</span></label>
+              <select class="form-select" id="clothing" name="clothing" required aria-describedby="clothing-error">
+                <option value="">Bitte auswählen</option>
+                <option>Jacken und Mäntel</option>
+                <option>Hosen</option>
+                <option>Oberteile</option>
+                <option>Schuhe</option>
+                <option>Kinderkleidung</option>
+                <option>Gemischte Kleidung</option>
+              </select>
+              <p class="field-error" id="clothing-error"></p>
+            </div>
+            <div class="field">
+              <label for="crisis-area">Krisengebiet <span class="required-label">Pflichtfeld</span></label>
+              <select class="form-select" id="crisis-area" name="crisisArea" required aria-describedby="crisis-error">
+                <option value="">Bitte auswählen</option>
+                <option>Ukraine</option>
+                <option>Sudan</option>
+              </select>
+              <p class="field-hint">Beispielauswahl für den Prototyp. Eine Organisation müsste die Liste aktuell pflegen.</p>
+              <p class="field-error" id="crisis-error"></p>
+            </div>
+          </div>
+
+          <div id="pickup-fields" class="pickup-fields" hidden>
+            <div class="subsection-heading">
+              <h3>Abholadresse und Termin</h3>
+              <p>Abholung ist im Prototyp möglich, wenn die ersten beiden Ziffern deiner Postleitzahl mit der Geschäftsstellen-PLZ 10115 übereinstimmen.</p>
+            </div>
+            <div class="field-grid address-grid">
+              <div class="field field-wide">
+                <label for="street">Straße <span class="required-label">Pflichtfeld</span></label>
+                <input class="form-control" id="street" name="street" autocomplete="address-line1" type="text" maxlength="100" aria-describedby="street-error" />
+                <p class="field-error" id="street-error"></p>
+              </div>
+              <div class="field">
+                <label for="house-number">Hausnummer <span class="required-label">Pflichtfeld</span></label>
+                <input class="form-control" id="house-number" name="houseNumber" autocomplete="address-line2" type="text" maxlength="15" aria-describedby="house-number-error" />
+                <p class="field-error" id="house-number-error"></p>
+              </div>
+              <div class="field">
+                <label for="postal-code">Postleitzahl <span class="required-label">Pflichtfeld</span></label>
+                <input class="form-control" id="postal-code" name="postalCode" autocomplete="postal-code" type="text" inputmode="numeric" maxlength="5" pattern="[0-9]{5}" aria-describedby="postal-code-hint postal-code-error" />
+                <p id="postal-code-hint" class="field-hint">Fünf Ziffern; die ersten beiden müssen 10 sein.</p>
+                <p class="field-error" id="postal-code-error"></p>
+              </div>
+              <div class="field">
+                <label for="city">Ort <span class="required-label">Pflichtfeld</span></label>
+                <input class="form-control" id="city" name="city" autocomplete="address-level2" type="text" maxlength="80" aria-describedby="city-error" />
+                <p class="field-error" id="city-error"></p>
+              </div>
+              <div class="field">
+                <label for="pickup-date">Wunschtermin <span class="required-label">Pflichtfeld</span></label>
+                <input class="form-control" id="pickup-date" name="pickupDate" type="date" aria-describedby="pickup-date-error" />
+                <p class="field-error" id="pickup-date-error"></p>
+              </div>
+              <div class="field">
+                <label for="pickup-time">Uhrzeit <span class="required-label">Pflichtfeld</span></label>
+                <input class="form-control" id="pickup-time" name="pickupTime" type="time" aria-describedby="pickup-time-error" />
+                <p class="field-error" id="pickup-time-error"></p>
+              </div>
+            </div>
+          </div>
+
+          <p class="prototype-note"><strong>Hinweis:</strong> Dies ist ein Lernprototyp. Er speichert oder übermittelt keine Registrierung.</p>
+          <button class="primary-button" type="submit">Spende registrieren</button>
+        </form>
+      </section>
+
+      <section id="confirmation" class="confirmation" aria-labelledby="confirmation-title" tabindex="-1" hidden>
+        <div class="success-mark" aria-hidden="true">✓</div>
+        <p class="eyebrow">Registrierung abgeschlossen</p>
+        <h2 id="confirmation-title">Danke für deine Spende</h2>
+        <p class="confirmation-copy">Hier findest du die Angaben zu deiner Registrierung.</p>
+        <dl id="confirmation-details" class="details-list"></dl>
+        <button id="new-registration" class="secondary-button" type="button">Neue Registrierung</button>
+      </section>
+
+      <section id="ablauf" class="how-it-works" aria-labelledby="how-title">
+        <p class="eyebrow">Gut zu wissen</p>
+        <h2 id="how-title">So funktioniert es</h2>
+        <ol>
+          <li>Wähle die persönliche Übergabe oder eine Abholung.</li>
+          <li>Gib die Art der Kleidung und das gewünschte Krisengebiet an.</li>
+          <li>Bei einer Abholung ergänze Adresse und Termin.</li>
+        </ol>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p><strong>Kleiderbrücke</strong><br />Ein nichtkommerzieller Lernprototyp.</p>
+        <p class="legal-note">Impressum und Datenschutzhinweise sind Platzhalter und müssen vor einem echten Betrieb fachlich geprüft und ergänzt werden.</p>
+      </div>
+    </footer>
+  </body>
+</html>
